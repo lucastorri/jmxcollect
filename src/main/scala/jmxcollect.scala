@@ -9,7 +9,7 @@ import java.util.concurrent.Semaphore
 import scala.collection.mutable.ListBuffer
 
 
-package object jmxmonitor {
+package object jmxcollect {
 
     trait Writer {
         def write(epoch: Long, attr: JMXAttribute, value: Any)
@@ -125,7 +125,7 @@ package object jmxmonitor {
 object main {
 
     def main(args: Array[String]) {
-        import loadtest._
+        import jmxcollect._
 
         val stdout = new AnyRef with Writer {
             def write(epoch: Long, attr: JMXAttribute, value: Any) = println(epoch, attr, value)
@@ -153,15 +153,4 @@ object main {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
 
